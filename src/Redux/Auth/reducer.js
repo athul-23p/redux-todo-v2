@@ -1,12 +1,15 @@
 import { LOGIN, LOGOUT } from './actions';
 
-const initState = { auth:localStorage.getItem("todo-auth") };
+const initState = JSON.parse(localStorage.getItem("todo-auth")) || {
+    isAuth:false,
+    auth_token:null
+};
 export const authReducer = (store = initState,{type,payload}) => {
     switch(type){
         case LOGIN:
-            return {auth_token:payload}
+            return {isAuth:true,auth_token:payload}
         case LOGOUT:
-            return {auth_token:null};
+            return {isAuth:false,auth_token:payload};
         default:
             return store;
     }   

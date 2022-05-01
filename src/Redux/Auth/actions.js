@@ -6,6 +6,7 @@ export const LOGOUT = "LOGOUT";
 
 // Action creators
 const login = (token) => {
+
     return {
         type: LOGIN,
         payload: token
