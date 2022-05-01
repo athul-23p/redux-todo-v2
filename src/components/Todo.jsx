@@ -2,12 +2,12 @@ import { useParams,useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { Button, Col, Row } from "antd";
-import { addTodos } from "../Redux/actions";
+import { addTodos } from "../Redux/Todo/actions";
 
 function Todo() {
   const params = useParams();
   const dispatch = useDispatch();
-  const todos = useSelector((store) => store.todos);
+  const todos = useSelector((store) => store.todosStore.todos);
   const [todo] = todos.filter((todo) => todo.id === +params.id);
   const navigate = useNavigate();
   const getData = () => {

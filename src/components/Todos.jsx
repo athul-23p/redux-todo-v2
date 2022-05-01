@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 
 import styled from "styled-components";
 import { useEffect } from "react";
-import { addTodos } from "../Redux/actions";
+import { addTodos } from "../Redux/Todo/actions";
 const TodosWrapper = styled.div`
   .row-todo {
     margin-top: 5px;
@@ -27,7 +27,7 @@ const TodosWrapper = styled.div`
   }
 `;
 function Todos() {
-  const todos = useSelector((store) => store.todos);
+  const todos = useSelector((store) => store.todosStore.todos);
   const dispatch = useDispatch();
 
   const getData = () => {
